@@ -135,6 +135,49 @@ namespace G_NET_106_Advanced_03
             #endregion
 
 
+            #region Exercise 4
+
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("Unique Email Validator");
+            Console.WriteLine("--------------------------------------");
+
+            HashSet<string> emailSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "ahmed@test.com",
+                "AHMED@test.com",
+                "sara@test.com",
+                "Sara@Test.Com"
+            };
+
+            Console.WriteLine("Count of unique emails: " + emailSet.Count);
+            Console.WriteLine("Unique emails: " + string.Join(", ", emailSet));
+
+            HashSet<int> setA = new HashSet<int> { 1, 2, 3, 4, 5 };
+
+            HashSet<int> setB = new HashSet<int> { 4, 5, 6, 7, 8 };
+
+            HashSet<int> unionSet = new HashSet<int>(setA);
+            unionSet.UnionWith(setB);
+
+            Console.WriteLine("Union: " + string.Join(", ", unionSet));
+
+            HashSet<int> intersectSet = new HashSet<int>(setA);
+            intersectSet.IntersectWith(setB);
+
+            Console.WriteLine("Intersection: " + string.Join(", ", intersectSet));
+
+            HashSet<int> exceptSet = new HashSet<int>(setA);
+            exceptSet.ExceptWith(setB);
+
+            Console.WriteLine("Difference: " + string.Join(", ", exceptSet));
+
+            bool isSubset = new HashSet<int> { 1, 2 }.IsSubsetOf(setA);
+            Console.WriteLine("Is {1,2} a subset of Set A? " + isSubset);
+
+
+
+            
+            #endregion
 
 
         }
