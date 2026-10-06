@@ -86,6 +86,56 @@ namespace G_NET_106_Advanced_03
             #endregion
 
 
+            #region Exercise 3
+
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("Phone Book");
+            Console.WriteLine("--------------------------------------");
+
+            Dictionary<string, string> phoneBook = new Dictionary<string, string>
+            {
+                { "Fatma", "01070610133" },
+                { "Mohammed", "01228098364" },
+                { "Hoda", "01273155681" },
+                { "Menna", "01288887122" }
+
+            };
+
+
+            phoneBook["Menna"] = "01126386181"; 
+
+            try
+            {
+                phoneBook.Add("Fatma", "01070610133");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            bool added = phoneBook.TryAdd("Fatma", "01070610133");
+            Console.WriteLine("TryAdd Result: " + added);
+
+            if (phoneBook.TryGetValue("Ali", out string aliNumber))
+            {
+                Console.WriteLine("Ali's Number: " + aliNumber);
+            }
+            else
+            {
+                Console.WriteLine("Ali's Number: Not Found");
+            }
+
+            Console.WriteLine("All Names: " + string.Join(", ", phoneBook.Keys));
+
+
+            Console.WriteLine("All Numbers: " + string.Join(", ", phoneBook.Values));
+
+            Console.WriteLine(" ");
+
+            #endregion
+
+
+
 
         }
     }
