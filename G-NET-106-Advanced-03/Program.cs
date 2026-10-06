@@ -43,6 +43,50 @@ namespace G_NET_106_Advanced_03
 
             Console.WriteLine("");
             #endregion
+
+
+            #region Exercise 2
+
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("Leaderboard");
+            Console.WriteLine("--------------------------------------");
+
+            Dictionary<int, string> leaderboard = new Dictionary<int, string>
+            {
+                { 500, "Ahmed" },
+                { 200, "Sara" },
+                { 800, "Ali" },
+                { 350, "Mona" }
+            };
+
+            var sortedLeaderboard = leaderboard.OrderBy(entry => entry.Key);
+
+            Helper.printCollection("Sorted Leaderboard", sortedLeaderboard);
+
+            var firstEntry = sortedLeaderboard.First();
+            Console.WriteLine($"First Entry - Score: {firstEntry.Key}, Player: {firstEntry.Value}");
+
+            bool scoreExists = leaderboard.ContainsKey(500);
+            Console.WriteLine("Score 500 Exists: " + scoreExists);
+
+            if (leaderboard.TryGetValue(999, out string player))
+            {
+                Console.WriteLine("Player with Score 999: " + player);
+            }
+            else
+            {
+                Console.WriteLine("Player with Score 999 does not exist.");
+            }
+
+            leaderboard.Remove(200);
+            Console.WriteLine("Leaderboard after removing player with score 200:");
+            Helper.printCollection("Updated Leaderboard", leaderboard);
+
+            Console.WriteLine("");
+            #endregion
+
+
+
         }
     }
 }
